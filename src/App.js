@@ -1,24 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Header, Grid } from 'semantic-ui-react';
+import Selection from './components/Selection';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header as='h1'>Rock - Pappers - Scissor Game</Header>
+
+      <Grid columns={3} divided>
+        <Grid.Row>
+          <Grid.Column>
+            <Selection image="../img/paper.png" />
+          </Grid.Column>
+          <Grid.Column>
+            <Selection image="../img/rock.png" />
+          </Grid.Column>
+          <Grid.Column>
+            <Selection image="../img/scissors.png" />
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     </div>
   );
 }
