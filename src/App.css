@@ -5,3 +5,13 @@
 .ui.header {
   padding: 20px;
 }
+
+.column-image {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-selection {
+  cursor: pointer;
+}
