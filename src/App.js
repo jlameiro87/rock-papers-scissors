@@ -19,7 +19,7 @@ class App extends Component {
     this.setState({ option: opt });
 
     // AI option
-    let generateOption = Math.floor(Math.random()*3);
+    let generateOption = Math.floor(Math.random() * 3);
     this.setState({ aioption: OPTIONS[generateOption] });
   }
 
@@ -40,7 +40,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Header as='h1'>Rock - Pappers - Scissor Game</Header>
+      <Header as='h1'>Rock - Pappers - Scissors Game</Header>
 
       <h2>Pick One</h2>
       <Grid columns={3} divided>
