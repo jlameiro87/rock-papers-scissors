@@ -23,6 +23,12 @@ class App extends Component {
     this.setState({ aioption: OPTIONS[generateOption] });
   }
 
+  getImageSelectedStyle = (option) => {
+    console.log(option)
+
+    return this.state.option === option ? 'selected-image' : '';
+  }
+
   getResult = (option, aioption) => {
     if (option === '' || aioption === '') {
       return '';
@@ -45,19 +51,24 @@ class App extends Component {
       <h2>Pick One</h2>
       <Grid columns={3} divided>
         <Grid.Row>
-          <Grid.Column className="column-image">
-            <Selection setOption={this.selectOption} image="../img/paper.png" option={OPTIONS[0]} />
+          <Grid.Column className={`column-image ${this.getImageSelectedStyle(OPTIONS[0])}`}>
+            <Selection setOption={this.selectOption} option={OPTIONS[0]} />
           </Grid.Column>
-          <Grid.Column className="column-image">
-            <Selection setOption={this.selectOption} image="../img/rock.png" option={OPTIONS[1]} />
+          <Grid.Column className={`column-image ${this.getImageSelectedStyle(OPTIONS[1])}`}>
+            <Selection setOption={this.selectOption} option={OPTIONS[1]} />
           </Grid.Column>
-          <Grid.Column className="column-image">
-            <Selection setOption={this.selectOption} image="../img/scissors.png" option={OPTIONS[2]} />
+          <Grid.Column className={`column-image ${this.getImageSelectedStyle(OPTIONS[2])}`}>
+            <Selection setOption={this.selectOption} option={OPTIONS[2]} />
           </Grid.Column>
         </Grid.Row>
       </Grid>
       {
-        this.state.option !== '' && <div><h2>Option Selected: {this.state.option}</h2><h2>AI Selected: {this.state.aioption}</h2><h2>Results: {this.state.status}</h2></div>
+        this.state.option !== '' && 
+        <div>
+          <h2>AI Selected:</h2>
+          <div className='column-image'><Selection option={this.state.aioption} /></div>
+          <h2>Results: {this.state.status}</h2>
+        </div>
       }
       <div>{this.getResult(this.state.option, this.state.aioption)}</div>
     </div>

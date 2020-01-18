@@ -15,3 +15,8 @@
 .image-selection {
   cursor: pointer;
 }
+
+.selected-image {
+  border: 1px solid;
+  border-color: red;
+}

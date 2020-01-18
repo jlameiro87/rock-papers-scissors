@@ -6,8 +6,26 @@ function Selection(props) {
     props.setOption(props.option);
   }
 
+  const getImage = () => {
+    let imgPath = '';
+    switch (props.option) {
+      case "PAPER":
+        imgPath = "../img/paper.png";
+        break;
+      case "ROCK":
+        imgPath = "../img/rock.png";
+        break;
+      case "SCISSORS":
+        imgPath = "../img/scissors.png";
+        break;
+      default:
+        break;
+    }
+    return imgPath;
+  }
+
   return (
-    <Image onClick={selectOption} className="image-selection" src={props.image} size='small' />
+    <Image onClick={selectOption} className="image-selection" src={getImage()} size='small' />
   )
 }
 
